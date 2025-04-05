@@ -12,6 +12,7 @@ export default function CRM() {
     try {
       const res = await axios.get("https://diabetesbackend.onrender.com/api/consultations");
       setAppointments(res.data);
+      console.log(res.data)
     } catch (error) {
       console.error("Error fetching data", error);
     }
@@ -34,6 +35,8 @@ export default function CRM() {
       <table className="w-full border-collapse border border-gray-600">
         <thead>
           <tr className="bg-gray-800 text-white">
+          <th className="p-3 border border-gray-600">Sr. No</th>
+          <th className="p-3 border border-gray-600">Date & Time</th>
             <th className="p-3 border border-gray-600">Name</th>
             <th className="p-3 border border-gray-600">Contact</th>
             <th className="p-3 border border-gray-600">Place</th>
@@ -42,8 +45,15 @@ export default function CRM() {
           </tr>
         </thead>
         <tbody>
-          {appointments.map((app) => (
+          {appointments.map((app,index) => (
             <tr key={app._id} className="border border-gray-600">
+              <td className="p-3 border border-gray-600">{index+1}</td>
+              <td className="p-3 border border-gray-600">
+  {new Date(app.createdAt).toLocaleDateString()}<br />
+  <span className="text-sm text-gray-500">
+    {new Date(app.createdAt).toLocaleTimeString()}
+  </span>
+</td>
               <td className="p-3 border border-gray-600">{app.name}</td>
               <td className="p-3 border border-gray-600">{app.contact}</td>
               <td className="p-3 border border-gray-600">{app.place}</td>
