@@ -139,6 +139,7 @@ export default function CRM() {
             <th className="p-3 border border-gray-600">Sr. No</th>
             <th className="p-3 border border-gray-600">Date & Time</th>
             <th className="p-3 border border-gray-600">Name</th>
+            <th className="p-3 border border-gray-600">Email</th>
             <th className="p-3 border border-gray-600">Contact</th>
             <th className="p-3 border border-gray-600">Place</th>
             <th className="p-3 border border-gray-600">Diabetes Duration</th>
@@ -157,6 +158,8 @@ export default function CRM() {
                 </span>
               </td>
               <td className="p-3 border border-gray-600">{app.name}</td>
+              <td className="p-3 border border-gray-600">{app.email}</td>
+        
               <td className="p-3 border border-gray-600">{app.contact}</td>
               <td className="p-3 border border-gray-600">{app.place}</td>
               <td className="p-3 border border-gray-600">{app.duration}</td>
